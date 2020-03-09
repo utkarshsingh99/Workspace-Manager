@@ -14,7 +14,7 @@ function listenForClicks() {
             .then(tabs => {
                 let urls = []
                 let workspace_name = document.getElementById('ws_title').value;
-                let workspace_id = workspace_name.trim().replaceAll(/ /g, //)
+                let workspace_id = workspace_name.trim().replace(/ /g, '');
                 for (let tab of tabs) {
                     console.log(tab.url)
                     urls.push({url: tab.url, title: tab.title})
