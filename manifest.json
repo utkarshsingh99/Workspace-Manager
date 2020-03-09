@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Workspace_Manager",
+    "version": "1.0",
+    "description": "Manages and saves Workspaces.",
+    "icons": {
+        "48": "icons/ws-icon.svg"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}",
+            "strict_min_version": "42.0"
+        }
+    },
+    "browser_action": {
+        "default_icon": "icons/ws-icon.svg",
+        "default_title": "Add Workspace",
+        "default_popup": "popup/workspaces.html"
+    },
+    "chrome_url_overrides": {
+        "newtab": "new-tab.html"
+    }
+}
