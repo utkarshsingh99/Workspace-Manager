@@ -1,6 +1,13 @@
 # Workspace-Manager
 A Firefox extension to save frequently used tabs as Workspaces
 
+## Description
+Are you a person with multiple interests in your life? 
+Then you would understand the pain of having different sets of tabs for the different tasks you do at seperate times.
+This extension can identify your open tabs, save them as a new Workspace, so the next time you sit to continue your work, all your links are there with just one click.
+The Workspaces are stored in your Local Extension Storage.
+You can also manually add new Workspaces in the New Tab page, and it will automatically provide a title for the link and save it. 
+
 ## Features:
 - Save currently open tabs as a Workspace.
 - In the New Tab page, click on any Workspace to open those set of tabs.
