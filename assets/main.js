@@ -6,7 +6,7 @@ browser.storage.local.get().then(res => {
     // for(var i in keys) 
     keys.forEach((key, i)=> {
         let li = `<li class="box" id="workspace_${keys[i]}">
-                <h3><u>${keys[i]}</u></h3><ul>`
+                <h3>${keys[i]}</h3><ul>`
         console.log(keys[i])
         for(var j in res[keys[i]].urls) {
             li += `<li class="links"><a class="links" href="${res[keys[i]].urls[j].url}">${res[keys[i]].urls[j].title}</a></li><br>`;
@@ -51,38 +51,39 @@ addNewWorkspace.addEventListener('click', function (e) {
     //         <input type="submit" id="submit"/><br>`;
 
     // newWorkspace.insertAdjacentHTML('beforeend', mainString)
-    let addMore = document.getElementById('add_more')
-    addMore.addEventListener('click', function (e) {
-        let inp = ` <label>URL ${urlno}:</label><br>
+})
+
+let addMore = document.getElementById('add_more')
+addMore.addEventListener('click', function (e) {
+    let inp = ` <label>URL ${urlno}:</label><br>
                     <input type="text" id="ws_${urlno++}" placeholder="Enter URL"/><br>`;
-        newWorkspace.insertAdjacentHTML('beforeend', inp);
-    })
-    document.getElementById('submit').addEventListener('click', function (e) {
-        let urls = []
-        let workspace_name = document.getElementById('ws_title').value;
-        let workspace_id = workspace_name.trim().replace(' ', '');
-        let currUrl = 1;
-        while(currUrl < urlno) {
-            let url = document.getElementById(`ws_${currUrl}`).value;
-            let title = findTitle(url)
-            urls.push({url: url, title: title}) 
-            currUrl++;
-        }
-        console.log(urls, workspace_name, workspace_id)
-        browser.tabs.executeScript({ file: "/content_scripts/content-script.js" })
+    newWorkspace.insertAdjacentHTML('beforeend', inp);
+})
+document.getElementById('submit').addEventListener('click', function (e) {
+    let urls = []
+    let workspace_name = document.getElementById('ws_title').value;
+    let workspace_id = workspace_name.trim().replace(' ', '');
+    let currUrl = 1;
+    while (currUrl < urlno) {
+        let url = document.getElementById(`ws_${currUrl}`).value;
+        let title = findTitle(url)
+        urls.push({ url: url, title: title })
+        currUrl++;
+    }
+    console.log(urls, workspace_name, workspace_id)
+    browser.tabs.executeScript({ file: "/content_scripts/content-script.js" })
         .then(() => {
             browser.tabs.query({ active: true, currentWindow: true })
-            .then(tabs => {
-                browser.tabs.sendMessage(tabs[0].id, {
-                    command: "submit",
-                    workspace_name,
-                    workspace_id,
-                    urls
-                });
-                alert('Your Workspace has been saved!')
-            })
+                .then(tabs => {
+                    browser.tabs.sendMessage(tabs[0].id, {
+                        command: "submit",
+                        workspace_name,
+                        workspace_id,
+                        urls
+                    });
+                    alert('Your Workspace has been saved!')
+                })
         })
-    })
 })
 
 function findTitle(url) {

@@ -17,7 +17,8 @@ body{
 	font-size: 19px;
 	color: #0dbab1;
 	list-style-type: none;
-    text-align: center;
+	text-align: center;
+	scrollbar-color: #0dbab1 black; 
 }
 
 h3 {
@@ -31,6 +32,19 @@ a:visited, a {
 
 ul > li {
     display: inline-block;
+}
+
+#no_workspaces {
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 35px;
+  	font-weight: 200;
+}
+
+p {
+	font-size: 17px;
 }
 
 .mainTitle {
