@@ -9,11 +9,12 @@ body{
 	line-height: 1.6;
     width: 30%;
 	padding: 20px 15px 20px 15px;
-	height: wrap-content;
+	height: 250px;
+	overflow: scroll;
 	border: 3.5px solid #0dbab1;
 	border-radius: 4px;
 	margin: 20px 20px 0px 0px;
-	font-size: 17px;
+	font-size: 19px;
 	color: #0dbab1;
 	list-style-type: none;
     text-align: center;

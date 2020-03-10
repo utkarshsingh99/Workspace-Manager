@@ -24,5 +24,8 @@
     },
     "chrome_url_overrides": {
         "newtab": "new-tab.html"
+    },
+    "chrome_settings_overrides": {
+        "homepage": "/new-tab.html"
     }
 }

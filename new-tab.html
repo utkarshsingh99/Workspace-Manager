@@ -17,7 +17,13 @@
             </div> <!-- workspacesHeader -->
             <p id="no_workspaces" class="mainTitle fade">Click here to manually add a Workspace</p>
             <p class="mainTitle"><a target="" href="/delete-ws.html">Delete Workspaces</a></p>
-            <div id="new_workspace"></div>
+            <div id="new_workspace" style="display: none;">
+                <br><input style="width: 400px;" type="text" id="ws_title" placeholder="Workspace Name" /><br>
+                <label>URL 1:</label>
+                <input type="text" id="ws_1" placeholder="Enter URL" /><br>
+                <input type="button" value="Add More" id="add_more" />
+                <input type="submit" id="submit" /><br>
+            </div>
             <ul id="workspaces">
                 
            </ul> <!-- workspaces -->
