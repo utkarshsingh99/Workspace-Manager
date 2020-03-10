@@ -9,6 +9,11 @@ browser.storage.local.get().then(res => {
                 <h3>${keys[i]}</h3><ul>`
         console.log(keys[i])
         for(var j in res[keys[i]].urls) {
+            if (res[keys[i]].urls[j].url) {
+                let str = res[keys[i]].urls[j].url;
+                res[keys[i]].urls[j].url = 'http://';
+                res[keys[i]].urls[j].url = res[keys[i]].urls[j].url.concat(str)
+            }
             li += `<li class="links"><a class="links" href="${res[keys[i]].urls[j].url}">${res[keys[i]].urls[j].title}</a></li><br>`;
         }
         li += `</ul>`;
@@ -55,7 +60,7 @@ addNewWorkspace.addEventListener('click', function (e) {
 
 let addMore = document.getElementById('add_more')
 addMore.addEventListener('click', function (e) {
-    let inp = ` <label>URL ${urlno}:</label><br>
+    let inp = `<label>URL ${urlno}:</label><br>
                     <input type="text" id="ws_${urlno++}" placeholder="Enter URL"/><br>`;
     newWorkspace.insertAdjacentHTML('beforeend', inp);
 })

@@ -5,10 +5,13 @@ browser.storage.local.get().then(res => {
     console.log(keys)
     keys.forEach((key, i) => {
         console.log(res[key].id);
-        let str = `<li id=${res[key].id}><h3>${key}</h3></li><br>`;
+        let str = `<li class="box" id=${res[key].id}><h3>${key}</h3></li><br>`;
         ul.insertAdjacentHTML('beforeend',str);
         document.getElementById(`${res[key].id}`).addEventListener('click', function (e) {
-            browser.storage.local.remove(`${key}`).then(()=>alert('Workspace Deleted. Reload to see changes'))
+            let confirm = confirm("Are you sure you want to delete this workspace?")
+            if(confirm){
+                browser.storage.local.remove(`${key}`).then(()=>alert('Workspace Deleted. Reload to see changes'))
+            }
         })
     })
 })
